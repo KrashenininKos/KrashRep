@@ -1,0 +1,31 @@
+#pragma once
+#include <Windows.h>
+#pragma pack(push,1)
+typedef struct
+{
+	BYTE jumpCode[3];//0x0000
+	BYTE sysName[8];//0x0003
+	WORD bytesOnSector;//0x000B
+	BYTE sectorOnCluster;//0x000D
+	WORD reservedSectors;//0x000E
+	BYTE Nm[3];
+	WORD Nm2;
+	BYTE mediaDescriptor;//0x0015
+	WORD Nm3;
+	WORD sectorPerTrack;//0x0018
+	WORD numberOfHeaders;//0x001A
+	DWORD hiddenSectors;
+	DWORD Nm4;
+	DWORD Nm5;
+	ULONGLONG sectorsInTheVolume;//0x0028
+	ULONGLONG lcnOfMFT;//0x0030
+	ULONGLONG lcnOfSMFTMirr;//0x0038
+	DWORD clusterPerMftRecord;//0x0040
+	BYTE clusterPerIndexRecord;//0x0044
+	BYTE  Nm6[3];
+	ULONGLONG volumeID;//0x0048
+	DWORD  Nm7;
+	BYTE  Nm8[426];
+	WORD markerEnd;
+} NTFSBoot;
+#pragma pack(pop)
